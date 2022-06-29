@@ -10,7 +10,7 @@ const percentDiv = document.querySelector(".percent-container");
 const progressContainer = document.querySelector(".progress-container");
 const toast = document.querySelector(".toast");
 
-const host = "https://fileshare-sharan.herokuapp.com/";
+const host = "https://fileshare-kiran.herokuapp.com/";
 
 const uploadURL = `${host}api/files`;
 const maxAllowedSize = 10 * 1024 * 1024;
