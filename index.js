@@ -4,10 +4,10 @@ const fileInput = document.querySelector("#fileInput");
 const fileURL = document.querySelector("#fileURL");
 const sharingContainer = document.querySelector(".sharing-container");
 const copyBtn = document.querySelector("#copyBtn");
-//const bgProgress = document.querySelector(".bg-progress");
-//const progressBar = document.querySelector(".progress-bar");
-//const percentDiv = document.querySelector(".percent-container");
-//const progressContainer = document.querySelector(".progress-container");
+const bgProgress = document.querySelector(".bg-progress");
+const progressBar = document.querySelector(".progress-bar");
+const percentDiv = document.querySelector(".percent-container");
+const progressContainer = document.querySelector(".progress-container");
 const toast = document.querySelector(".toast");
 
 const host = "https://fileshare-sharan.herokuapp.com/";
@@ -54,7 +54,7 @@ copyBtn.addEventListener("click", () => {
 });
 
 const uploadFile = () => {
-   // progressContainer.style.display = "block";
+    progressContainer.style.display = "block";
 
     if (fileInput.files.length > 1) {
         resetFileInput();
@@ -77,7 +77,7 @@ const uploadFile = () => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            //progressContainer.style.display = "none";
+            progressContainer.style.display = "none";
             showLink(JSON.parse(xhr.response));
         }
     };
@@ -98,7 +98,7 @@ const showLink = ({ file: url }) => {
     sharingContainer.style.display = "block";
 };
 
-/*
+
 const updateProgress = (e) => {
     const percent = Math.round((e.loaded / e.total) * 100);
     console.log(percent);
@@ -107,7 +107,7 @@ const updateProgress = (e) => {
     percentDiv.innerText = `${percent}%`;
     progressBar.style.transform = `scaleX(${percent/100})`;
 };
-*/
+
 const resetFileInput = () => {
     fileInput.value = "";
 };
