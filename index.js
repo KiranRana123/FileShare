@@ -54,7 +54,7 @@ copyBtn.addEventListener("click", () => {
 });
 
 const uploadFile = () => {
-    progressContainer.style.display = "block";
+   // progressContainer.style.display = "block";
 
     if (fileInput.files.length > 1) {
         resetFileInput();
@@ -77,12 +77,12 @@ const uploadFile = () => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             console.log(xhr.response);
-            progressContainer.style.display = "none";
+            //progressContainer.style.display = "none";
             showLink(JSON.parse(xhr.response));
         }
     };
 
-  //  xhr.upload.onprogress = updateProgress;
+    xhr.upload.onprogress = updateProgress;
     xhr.upload.onerror = () => {
         resetFileInput();
         showToast(`Error in upload: ${xhr.statusText}`);
